@@ -1,0 +1,10 @@
+C:\Users\na-zi\source\repos\teestForm2\teestForm2\bin\Debug\teestForm2.exe.config
+C:\Users\na-zi\source\repos\teestForm2\teestForm2\bin\Debug\teestForm2.exe
+C:\Users\na-zi\source\repos\teestForm2\teestForm2\bin\Debug\teestForm2.pdb
+C:\Users\na-zi\source\repos\teestForm2\teestForm2\obj\Debug\teestForm2.csprojAssemblyReference.cache
+C:\Users\na-zi\source\repos\teestForm2\teestForm2\obj\Debug\teestForm2.Form1.resources
+C:\Users\na-zi\source\repos\teestForm2\teestForm2\obj\Debug\teestForm2.Properties.Resources.resources
+C:\Users\na-zi\source\repos\teestForm2\teestForm2\obj\Debug\teestForm2.csproj.GenerateResource.cache
+C:\Users\na-zi\source\repos\teestForm2\teestForm2\obj\Debug\teestForm2.csproj.CoreCompileInputs.cache
+C:\Users\na-zi\source\repos\teestForm2\teestForm2\obj\Debug\teestForm2.exe
+C:\Users\na-zi\source\repos\teestForm2\teestForm2\obj\Debug\teestForm2.pdb
