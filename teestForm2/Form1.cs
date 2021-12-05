@@ -12,163 +12,69 @@ namespace teestForm2
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        int where;
+        List<Person> listPer = new List<Person>();
+
+        private void inisial()
         {
-            InitializeComponent();
-            txtId.Enabled = false;
+            ddl_ids.Enabled = true;
             txtPrenom.Enabled = false;
             txtNom.Enabled = false;
             txtAge.Enabled = false;
-            txtIds.Enabled = false;
-            age.Enabled = false;
-            id.Enabled = false;
-            nom.Enabled = false;
-            prenom.Enabled = false;
             btModifier.Enabled = false;
             btSupprimer.Enabled = false;
             btConfirmer.Enabled = false;
             btAnnuler.Enabled = false;
             btAjouter.Enabled = true;
-            btVider.Hide();
+            ddl_ids.SelectedItem = null;
+            txtPrenom.Clear();
+            txtNom.Clear();
+            txtAge.Clear();
+
+        }
+
+        public Form1()
+        {
+            InitializeComponent();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-  
+            inisial();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            txtId.Enabled = true;
-            txtPrenom.Enabled = true;
-            txtNom.Enabled = true;
-            txtAge.Enabled = true;
-            txtIds.Enabled = true;
-            age.Enabled = true;
-            id.Enabled = true;
-            nom.Enabled = true;
-            prenom.Enabled = true;
-            btModifier.Enabled = false;
-            btSupprimer.Enabled = false;
-            btConfirmer.Enabled = true;
-            btAnnuler.Enabled = true;
-            btAjouter.Enabled = false;
-        }
 
         private void btAjouter_Click(object sender, EventArgs e)
         {
-            txtId.Enabled = true;
+            where = 1;
+            ddl_ids.Enabled = false;
+            ddl_ids.SelectedItem = null;
             txtPrenom.Enabled = true;
             txtNom.Enabled = true;
             txtAge.Enabled = true;
-            txtIds.Enabled = false;
-            age.Enabled = true;
-            id.Enabled = true;
+            /*age.Enabled = true;
             nom.Enabled = true;
-            prenom.Enabled = true;
+            prenom.Enabled = true;*/
             btModifier.Enabled = false;
             btSupprimer.Enabled = false;
             btConfirmer.Enabled = true;
             btAnnuler.Enabled = true;
             btAjouter.Enabled = false;
+            txtPrenom.Clear();
+            txtNom.Clear();
+            txtAge.Clear();
+            ddl_ids.Enabled = false;
 
-            
-
-
-
-        }
-
-        private void btConfirmer_Click(object sender, EventArgs e)
-        {
-            txtId.Enabled = true;
-            txtPrenom.Enabled = true;
-            txtNom.Enabled = true;
-            txtAge.Enabled = true;
-            txtIds.Enabled = true;
-            age.Enabled = true;
-            id.Enabled = true;
-            nom.Enabled = true;
-            prenom.Enabled = true;
-            btModifier.Enabled = true;
-            btSupprimer.Enabled = true;
-            btConfirmer.Enabled = false;
-            btAnnuler.Enabled = false;
-            btAjouter.Enabled = true;
-
-            string ids = txtId.Text;
-            txtIds.Items.Add(ids);
-            txtIds.Text = ids;
-
-            //vider les champs
-            txtId.Text = String.Empty;
-            txtPrenom.Text = String.Empty;
-            txtNom.Text = String.Empty;
-            txtAge.Text = String.Empty;
-
-
-        }
-
-        private void btquitter_Click(object sender, EventArgs e)
-        {
-            
-            this.Close();
-        }
-
-        private void btAnnuler_Click(object sender, EventArgs e)
-        {
-            if (txtIds.Text == "")
-            {
-                txtId.Enabled = false;
-                txtPrenom.Enabled = false;
-                txtNom.Enabled = false;
-                txtAge.Enabled = false;
-                txtIds.Enabled = false;
-                age.Enabled = false;
-                id.Enabled = false;
-                nom.Enabled = false;
-                prenom.Enabled = false;
-                btModifier.Enabled = false;
-                btSupprimer.Enabled = false;
-                btConfirmer.Enabled = false;
-                btAnnuler.Enabled = false;
-                btAjouter.Enabled = true;
-            }
-            else
-            {
-                txtId.Enabled = true;
-                txtPrenom.Enabled = true;
-                txtNom.Enabled = true;
-                txtAge.Enabled = true;
-                txtIds.Enabled = true;
-                age.Enabled = true;
-                id.Enabled = true;
-                nom.Enabled = true;
-                prenom.Enabled = true;
-                btModifier.Enabled = true;
-                btSupprimer.Enabled = true;
-                btConfirmer.Enabled = false;
-                btAnnuler.Enabled = false;
-                btAjouter.Enabled = true;
-            }
         }
 
         private void btModifier_Click(object sender, EventArgs e)
         {
-            txtId.Enabled = true;
+            where = 2;
+            ddl_ids.Enabled = false;
             txtPrenom.Enabled = true;
             txtNom.Enabled = true;
             txtAge.Enabled = true;
-            txtIds.Enabled = true;
-            age.Enabled = true;
-            id.Enabled = true;
-            nom.Enabled = true;
-            prenom.Enabled = true;
             btModifier.Enabled = false;
             btSupprimer.Enabled = false;
             btConfirmer.Enabled = true;
@@ -177,24 +83,129 @@ namespace teestForm2
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btSupprimer_Click(object sender, EventArgs e)
         {
+            where = 3;
+            ddl_ids.Enabled = false;
+            txtPrenom.Enabled = false;
+            txtNom.Enabled = false;
+            txtAge.Enabled = false;
+            btModifier.Enabled = false;
+            btSupprimer.Enabled = false;
+            btConfirmer.Enabled = true;
+            btAnnuler.Enabled = true;
+            btAjouter.Enabled = false;
+        }
+
+        private void btConfirmer_Click(object sender, EventArgs e)
+        {
+            if (where == 1)
+            {
+                if (txtPrenom.Text.Trim().Length > 0 && txtNom.Text.Trim().Length > 0 && txtAge.Text.Trim().Length > 0)
+                {
+                    Person p = new Person(txtPrenom.Text, txtNom.Text, int.Parse(txtAge.Text));
+                    listPer.Add(p);
+                    ddl_ids.Items.Add(p.id.ToString());
+                    ddl_ids.Text = p.id.ToString();
+                    txtPrenom.Text = p.prenom;
+                    txtNom.Text = p.nom;
+                    txtAge.Text = p.age.ToString();
+                    txtAge.Text = string.Empty;
+                    txtNom.Text = string.Empty;
+                    txtPrenom.Text = string.Empty;
+                    ddl_ids.Text = string.Empty;
+
+
+                }
+            }
+            else if (where == 2)
+            {
+                for (int i = 0; i < listPer.Count; i++)
+                {
+                    if (listPer[i].id == int.Parse(ddl_ids.Text))
+                    {
+                        listPer[i].prenom = txtPrenom.Text;
+                        listPer[i].nom = txtNom.Text;
+                        listPer[i].age = int.Parse(txtAge.Text);
+                        btAjouter.Enabled = true;
+                        btModifier.Enabled = true;
+                        btSupprimer.Enabled = true;
+                        btAnnuler.Enabled = false;
+                        btConfirmer.Enabled = false;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < listPer.Count; i++)
+                {
+                    if (listPer[i].id == int.Parse(ddl_ids.Text))
+                    {
+                        listPer.Remove(listPer[i]);
+                        ddl_ids.Items.Remove(ddl_ids.SelectedItem);
+                        inisial();
+                    }
+
+                }
+
+            }
 
         }
+
+            private void btAnnuler_Click(object sender, EventArgs e)
+            {
+                inisial();
+            }
+
+
+            private void ddl_ids_SelectedIndexChanged(object sender, EventArgs e)
+            {
+                ddl_ids.Enabled = true;
+                txtAge.Enabled = false;
+                txtNom.Enabled = false;
+                txtPrenom.Enabled = false;
+                btAjouter.Enabled = true;
+                btModifier.Enabled = true;
+                btSupprimer.Enabled = true;
+                btConfirmer.Enabled = false;
+                btAnnuler.Enabled = false;
+                foreach (Person p in listPer)
+                {
+                    if (p.id.ToString() == ddl_ids.Text)
+                    {
+                        txtAge.Text = p.age.ToString();
+                        txtPrenom.Text = p.prenom;
+                        txtNom.Text = p.nom;
+                    }
+                }
+            }
 
         private void prenom_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btVider_Click(object sender, EventArgs e)
+
+
+        private void age_Click(object sender, EventArgs e)
         {
-            txtId.Text = String.Empty;
-            txtNom.Text = String.Empty;
-            txtAge.Text = String.Empty;
-            txtPrenom.Text = String.Empty;
-            
 
         }
+
+        private void nom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+
     }
-}
+    }
+

@@ -29,7 +29,6 @@ namespace teestForm2
         /// </summary>
         private void InitializeComponent()
         {
-            this.id = new System.Windows.Forms.Label();
             this.txtPrenom = new System.Windows.Forms.TextBox();
             this.prenom = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
@@ -41,22 +40,9 @@ namespace teestForm2
             this.btSupprimer = new System.Windows.Forms.Button();
             this.btConfirmer = new System.Windows.Forms.Button();
             this.btAnnuler = new System.Windows.Forms.Button();
-            this.txtIds = new System.Windows.Forms.ComboBox();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.btquitter = new System.Windows.Forms.Button();
-            this.Ids = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.Label();
+            this.ddl_ids = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // id
-            // 
-            this.id.AutoSize = true;
-            this.id.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id.Location = new System.Drawing.Point(170, 90);
-            this.id.Name = "id";
-            this.id.Size = new System.Drawing.Size(96, 56);
-            this.id.TabIndex = 0;
-            this.id.Text = "ID :";
-            this.id.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtPrenom
             // 
@@ -94,6 +80,7 @@ namespace teestForm2
             this.nom.Size = new System.Drawing.Size(154, 56);
             this.nom.TabIndex = 4;
             this.nom.Text = "Nom :";
+            this.nom.Click += new System.EventHandler(this.nom_Click);
             // 
             // txtAge
             // 
@@ -112,6 +99,7 @@ namespace teestForm2
             this.age.Size = new System.Drawing.Size(133, 56);
             this.age.TabIndex = 6;
             this.age.Text = "Age :";
+            this.age.Click += new System.EventHandler(this.age_Click);
             // 
             // btAjouter
             // 
@@ -137,14 +125,14 @@ namespace teestForm2
             // 
             // btSupprimer
             // 
-            this.btSupprimer.Location = new System.Drawing.Point(590, 543);
+            this.btSupprimer.Location = new System.Drawing.Point(573, 543);
             this.btSupprimer.Name = "btSupprimer";
             this.btSupprimer.Size = new System.Drawing.Size(176, 63);
             this.btSupprimer.TabIndex = 10;
             this.btSupprimer.Text = "Supprimer";
             this.btSupprimer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btSupprimer.UseVisualStyleBackColor = true;
-            this.btSupprimer.Click += new System.EventHandler(this.button2_Click);
+            this.btSupprimer.Click += new System.EventHandler(this.btSupprimer_Click);
             // 
             // btConfirmer
             // 
@@ -168,53 +156,35 @@ namespace teestForm2
             this.btAnnuler.UseVisualStyleBackColor = true;
             this.btAnnuler.Click += new System.EventHandler(this.btAnnuler_Click);
             // 
-            // txtIds
+            // ID
             // 
-            this.txtIds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIds.FormattingEnabled = true;
-            this.txtIds.Location = new System.Drawing.Point(524, 23);
-            this.txtIds.Name = "txtIds";
-            this.txtIds.Size = new System.Drawing.Size(469, 48);
-            this.txtIds.TabIndex = 13;
-            this.txtIds.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.ID.AutoSize = true;
+            this.ID.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ID.Location = new System.Drawing.Point(170, 71);
+            this.ID.Name = "ID";
+            this.ID.Size = new System.Drawing.Size(96, 56);
+            this.ID.TabIndex = 16;
+            this.ID.Text = "ID :";
+            this.ID.Click += new System.EventHandler(this.ID_Click);
             // 
-            // txtId
+            // ddl_ids
             // 
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(524, 98);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(469, 48);
-            this.txtId.TabIndex = 14;
-            // 
-            // btquitter
-            // 
-            this.btquitter.Location = new System.Drawing.Point(1208, 45);
-            this.btquitter.Name = "btquitter";
-            this.btquitter.Size = new System.Drawing.Size(160, 101);
-            this.btquitter.TabIndex = 15;
-            this.btquitter.Text = "QUITTER";
-            this.btquitter.UseVisualStyleBackColor = true;
-            this.btquitter.Click += new System.EventHandler(this.btquitter_Click);
-            // 
-            // Ids
-            // 
-            this.Ids.AutoSize = true;
-            this.Ids.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ids.Location = new System.Drawing.Point(170, 15);
-            this.Ids.Name = "Ids";
-            this.Ids.Size = new System.Drawing.Size(121, 56);
-            this.Ids.TabIndex = 16;
-            this.Ids.Text = "IDS :";
+            this.ddl_ids.BackColor = System.Drawing.Color.White;
+            this.ddl_ids.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddl_ids.FormattingEnabled = true;
+            this.ddl_ids.Location = new System.Drawing.Point(524, 90);
+            this.ddl_ids.Name = "ddl_ids";
+            this.ddl_ids.Size = new System.Drawing.Size(469, 48);
+            this.ddl_ids.TabIndex = 17;
+            this.ddl_ids.SelectedIndexChanged += new System.EventHandler(this.ddl_ids_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1441, 774);
-            this.Controls.Add(this.Ids);
-            this.Controls.Add(this.btquitter);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.txtIds);
+            this.Controls.Add(this.ddl_ids);
+            this.Controls.Add(this.ID);
             this.Controls.Add(this.btAnnuler);
             this.Controls.Add(this.btConfirmer);
             this.Controls.Add(this.btSupprimer);
@@ -226,7 +196,6 @@ namespace teestForm2
             this.Controls.Add(this.nom);
             this.Controls.Add(this.txtPrenom);
             this.Controls.Add(this.prenom);
-            this.Controls.Add(this.id);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -236,8 +205,6 @@ namespace teestForm2
         }
 
         #endregion
-
-        private System.Windows.Forms.Label id;
         private System.Windows.Forms.TextBox txtPrenom;
         private System.Windows.Forms.Label prenom;
         private System.Windows.Forms.TextBox txtNom;
@@ -249,10 +216,8 @@ namespace teestForm2
         private System.Windows.Forms.Button btSupprimer;
         private System.Windows.Forms.Button btConfirmer;
         private System.Windows.Forms.Button btAnnuler;
-        private System.Windows.Forms.ComboBox txtIds;
-        private System.Windows.Forms.TextBox txtId;
-        private System.Windows.Forms.Button btquitter;
-        private System.Windows.Forms.Label Ids;
+        private System.Windows.Forms.Label ID;
+        private System.Windows.Forms.ComboBox ddl_ids;
     }
 }
 
